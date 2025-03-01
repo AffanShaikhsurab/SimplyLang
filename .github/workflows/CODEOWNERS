@@ -1,0 +1,18 @@
+# Default owner for everything
+*        @AffanShaikhSurab
+
+# Owner for GitHub Actions workflow
+.github/workflows/*  @AffanShaikhSurab
+
+# Owner for core language files
+src/simply.py        @AffanShaikhSurab
+src/*                @AffanShaikhSurab
+
+# Owner for tests
+tests/*              @AffanShaikhSurab
+
+# Owner for documentation
+docs/*               @AffanShaikhSurab
+
+# Owner for CI/CD configurations
+.github/*            @AffanShaikhSurab
