@@ -1,4 +1,4 @@
-name: Run SimplyLang Tests
+name: Run SimplyLang Tests & Linting
 
 on:
   pull_request:
@@ -21,14 +21,13 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r builder/requirements.txt  # Install required dependencies
+          pip install pylint black  # Install linting tools
 
       - name: Run SimplyLang Tests
-        run: |
-          python src/simply.py tests/system/test.simply  # Run the test.simply file
+        run: python src/simply.py tests/system/test.simply  # Run the test.simply file
 
-      - name: Check for Errors
-        run: |
-          if [ $? -ne 0 ]; then
-            echo "Tests failed! Fix the errors before merging."
-            exit 1
-          fi
+      - name: Run Linter (Pylint)
+        run: pylint src/ || true  # Prevent failure due to linting issues
+
+      - name: Check Code Formatting (Black)
+        run: black --check src/ || true  # Prevent failure due to formatting issues
