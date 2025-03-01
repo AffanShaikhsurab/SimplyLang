@@ -88,7 +88,7 @@ We welcome contributions to the Simple project! If you’d like to contribute:
 
 ## Support
 
-For support or questions, please contact us at [support@example.com](mailto:support@example.com) or visit our [support page](#).
+For support or questions, please contact us at [affanshaikhsurabofficial@gmail.com](mailto:affanshaikhsurabofficial@gmail.com) or visit our [support page](#).
 
 ## License
 
