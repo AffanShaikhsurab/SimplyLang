@@ -1,0 +1,94 @@
+
+Note : Assigning variables .
+a is 10 
+b is 20 
+
+Note: doing mathematical operations .
+
+c is a - b 
+
+show( c ) 
+
+Note : creating arrays  .
+
+array is 1 , 2 , 4
+
+Note: prinitng .
+
+show("array is " , array)
+
+Note : creating dicts .
+
+dict is Name Affan , Age  20 
+
+show("dict is " , dict)
+
+name is Name of dict 
+
+show("Name of dict Name" , name )
+
+Note : Editing dict .
+
+m is "John Doe"
+
+Name of dict is "John Doe"
+
+name is Name of dict 
+
+show("Name of dict Name" , name )
+
+elememt is array[0]
+
+show("elememt" , elememt , elememt + 10 )
+
+add takes a , b does 
+    sum is a + b
+    return sum 
+.
+
+sum is add(10 , 20 )
+show("added sum is " , sum)
+
+
+Note: direct calling of sum .
+
+show("added sum is " , add(1 , 2))
+
+
+Note: This is while loop .
+
+till a < b do show("value of a inside the loop is :" , a) a is a + 5 .
+
+Note: This is for loop . 
+
+repeat 5 times
+show("the value of a is " , a)
+.
+
+
+Note: This is conditional statements .
+
+if a equals b then
+    show("a and b are equal" , a)
+otherwise 
+    show("a and b are different " , b)
+
+.
+
+Note: This is try-oops block .
+
+try
+ 
+   show("the task1 completed successfully")
+
+   Note: this is break statements .
+
+   stop with " something went wrong in task1 "
+
+   show("the task2 completed successfully")
+
+oops 
+
+   show("something went wrong")
+
+. 

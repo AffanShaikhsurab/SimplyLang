@@ -1,0 +1,4 @@
+black==23.12.1
+pylint==3.0.3
+typing==3.7.4.3
+argparse>=1.4.0
