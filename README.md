@@ -24,7 +24,7 @@ Welcome to the **Simple** language project! Simple is a programming language cra
 
 1. **Download the Installer**
 
-   Obtain the Simple Language installer (`Simple.exe`) from the [official website](https://affanshaikhsurab.github.io/SimpleLang-Webiste/) or your distribution channel.
+   Obtain the Simple Language installer (`Simple.exe`) from the [official website](https://simply-lang.vercel.app/) or your distribution channel.
 
 2. **Run the Installer**
 
