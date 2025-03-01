@@ -1,0 +1,34 @@
+name: Run SimplyLang Tests
+
+on:
+  pull_request:
+    branches:
+      - main  # Runs on PRs targeting the main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use Ubuntu for running tests
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Pulls the latest code
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"  # Use any Python version you need
+
+      - name: Install Dependencies
+        run: |
+          pip install -r builder/requirements.txt  # Install required dependencies
+
+      - name: Run SimplyLang Tests
+        run: |
+          python src/simply.py tests/system/test.simply  # Run the test.simply file
+
+      - name: Check for Errors
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Tests failed! Fix the errors before merging."
+            exit 1
+          fi
