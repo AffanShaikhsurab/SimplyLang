@@ -16,3 +16,9 @@ docs/*               @AffanShaikhSurab
 
 # Owner for CI/CD configurations
 .github/*            @AffanShaikhSurab
+
+# Owner for general project files
+README.md            @AffanShaikhSurab
+CONTRIBUTING.md      @AffanShaikhSurab
+LICENSE              @AffanShaikhSurab
+Roadmap.md           @AffanShaikhSurab
