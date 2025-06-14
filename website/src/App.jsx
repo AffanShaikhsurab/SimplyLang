@@ -7,6 +7,7 @@ import WhoIsItFor from "./components/WhoIsItFor.jsx";
 import JourneySection from "./components/JourneySection.jsx";
 import CallToAction from "./components/CallToAction.jsx";
 import DownloadPlatform from "./components/DownloadPlatform.jsx";
+import AsMentionedOn from "./components/AsMentionedOn.jsx";
 import Documentation from "./components/Docs.jsx";
 
 
@@ -21,9 +22,9 @@ const App = () => {
           <HeroSection />
           <WhySimpleLang />
           <WhatMakesItDifferent />
-          <WhoIsItFor />
-          <JourneySection />
+          <WhoIsItFor />          <JourneySection />
           <DownloadPlatform />
+          <AsMentionedOn />
           <CallToAction />
         </>
       ) : (
