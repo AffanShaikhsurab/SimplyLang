@@ -1,5 +1,5 @@
 
-# Simple Language
+# Simple Language - SimplyLang
 
 Welcome to the **Simple** language project! Simple is a programming language crafted to make learning to code accessible and enjoyable for young learners. Its design emphasizes easy-to-understand syntax and natural language constructs.
 
@@ -24,7 +24,7 @@ Welcome to the **Simple** language project! Simple is a programming language cra
 
 1. **Download the Installer**
 
-   Obtain the Simple Language installer (`Simple.exe`) from the [official website](https://simplylang.org/) or your distribution channel.
+   Obtain the Simple Language (Simplylang) installer (`Simple.exe`) from the [official website](https://simplylang.org/) or your distribution channel.
 
 2. **Run the Installer**
 
