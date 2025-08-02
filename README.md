@@ -1,5 +1,5 @@
 
-# 🎉 Simple Language - SimplyLang
+#  Simple Language - SimplyLang
 
 Welcome to the **SimplyLang** language project! SimplyLang is a programming language crafted to make learning to code accessible and enjoyable for young learners. Its design emphasizes easy-to-understand syntax and natural language constructs.
 
@@ -12,11 +12,6 @@ Welcome to the **SimplyLang** language project! SimplyLang is a programming lang
   <img src="assets/logo.png" alt="SimplyLang Logo" width="200"/>
 </p>
 
-
-
-## 📚 Syntax Help
-Need help learning the commands?  
-Check out the full syntax reference: 👉 [*SYNTAX_NOTES.md*](./SYNTAX_NOTES.md)
 
 ---
 
@@ -41,46 +36,59 @@ array is 1 2 4
 
 (Yes, it’s really that simple!) 😄
 
-### 💫 Key Features
 
-- **💭Intuitive Syntax**: Uses natural language to make coding easy for children.
-- **⚡Interactive Feedback**: Allows learners to see the results of their code instantly.
-- **🧠Educational Focus**: Aims to teach basic programming concepts in an engaging way.
+###  Key Features
+
+- **Intuitive Syntax**: Uses natural language to make coding easy for children.
+- **Interactive Feedback**: Allows learners to see the results of their code instantly.
+- **Educational Focus**: Aims to teach basic programming concepts in an engaging way.
+
+---
+## 📚 Learning Resources
+
+Explore these additional resources to learn more about SimplyLang:
+
+- **[SimplyLang DeepWiki](https://deepwiki.com/AffanShaikhsurab/SimplyLang)** - Comprehensive documentation and community-contributed examples
+
+- [Official Syntax Notes](./SYNTAX_NOTES.md) - Quick reference for all commands
+
+
+---
 
 ## 🛠️Installation Guide
 
-### 📒Prerequisites
+### Prerequisites
 
-- **💻Windows Operating System**: The installer is designed for Windows.
-- **🔑Administrative Rights**: Required to install the application and modify system environment variables.
+- **Windows Operating System**: The installer is designed for Windows.
+- **Administrative Rights**: Required to install the application and modify system environment variables.
 
-### 📥 Installation Steps
+###  Installation Steps
 
-1. **⬇️Download the Installer**
+1. **⬇Download the Installer**
 
    Obtain the SimplyLang Language  installer (`SimplyLang.exe`) from the [official website](https://simplylang.org/) or your distribution channel.
 
-2. **▶️Run the Installer**
+2. **Run the Installer**
 
    - Double-click the `SimplyLang.exe` file to start the installation process.
    - Follow the on-screen instructions to complete the installation. The installer will:
 
-     - 👉 Install the SimplyLang language executable and Python.
+     -  Install the SimplyLang language executable and Python.
      
-     - 👉Set up necessary environment variables to run SimplyLang from the command line.
+     -  Set up necessary environment variables to run SimplyLang from the command line.
 
-3. **✅Verify Installation**
+3. **Verify Installation**
 
    - The installer will automatically add SimplyLang to your system's PATH.
    - Open Command Prompt and type `SimplyLang` to ensure the executable is recognized and runs correctly.
 
-### 🖱️Example Usage
+### Example Usage
 
-1. **💻Open Command Prompt**
+1. **Open Command Prompt**
 
    Press `Win + R`, type `cmd`, and press Enter to open Command Prompt.
 
-2. **▶️Run a SimplyLang Script**
+2. **Run a SimplyLang Script**
 
    Navigate to the directory where your `.SimplyLang` file is located or simply execute:
 
@@ -90,7 +98,7 @@ array is 1 2 4
 
    Replace `example.SimplyLang` with the name of your SimplyLang language file.
 
-3. **📝Create and Run a SimplyLang Script**
+3. **Create and Run a SimplyLang Script**
 
    Create a `.SimplyLang` file with the following content:
 
@@ -101,6 +109,8 @@ array is 1 2 4
    ```
 
    Save the file as `example.SimplyLang` and run it using the command above to see the result.
+
+---
 
 ## 📂 Project Structure:
 ```
@@ -127,18 +137,20 @@ SimplyLang/
 ├── requirements.txt             # Python dependencies
 └── todo.md                      # To-do list for the project
 ```
+---
 ## 🎯Project Goals
 
 The SimplyLang language project aims to:
 
-- **🌏Make Programming Accessible for Young Learners**: By using natural language constructs, SimplyLang helps children understand and write code more easily.
+- **Make Programming Accessible for Young Learners**: By using natural language constructs, SimplyLang helps children understand and write code more easily.
   
-- **🎓Promote Early Learning**: Designed to be engaging and interactive, SimplyLang encourages children to explore and learn programming concepts through hands-on experience.
+- **Promote Early Learning**: Designed to be engaging and interactive, SimplyLang encourages children to explore and learn programming concepts through hands-on experience.
 
-- **🧩Develop Computational Thinking**: Introduces programming logic and problem-solving in a way that is approachable and fun.
+- **Develop Computational Thinking**: Introduces programming logic and problem-solving in a way that is approachable and fun.
 
-- **💻Create an Intuitive Development Environment**: With its easy-to-read syntax and immediate feedback, SimplyLang aims to provide a supportive learning environment.
+- **Create an Intuitive Development Environment**: With its easy-to-read syntax and immediate feedback, SimplyLang aims to provide a supportive learning environment.
 
+---
 ## 🤝Contributing
 
 We welcome contributions to the SimplyLang project! If you’d like to contribute:
@@ -147,10 +159,12 @@ We welcome contributions to the SimplyLang project! If you’d like to contribut
 2. Create a new branch for your changes.
 3. Submit a pull request with a description of your changes.
 
+---
 ## 🆘Support
 
 For support or questions, please contact us at [affanshaikhsurabofficial@gmail.com](mailto:affanshaikhsurabofficial@gmail.com) or visit our [support page](#).
 
+---
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
