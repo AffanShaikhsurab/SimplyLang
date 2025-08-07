@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown,Copy, Check ,  ChevronRight, ChevronLeft  , Play, Book, Code, Box, Search, Menu, X, ArrowRight } from 'lucide-react';
+import ScrollToTopButton from './ScrollToTop';
 
 const Documentation = () => {
     const [activeSection, setActiveSection] = useState('getting-started');
@@ -21,8 +22,8 @@ const Documentation = () => {
             <CodeExample 
               title="hello_world.simple"
               code={`Note :  This is your first program! .
-message is "Hello, friends!"
-show(message)`} 
+              message is "Hello, friends!"
+              show(message)`} 
             />
           </SubSection>
         </DocSection>
@@ -616,6 +617,7 @@ oops
               </main>
             </div>
           </div>
+          <ScrollToTopButton/>
         </div>
       );
     };

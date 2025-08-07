@@ -9,6 +9,7 @@ import CallToAction from "./components/CallToAction.jsx";
 import DownloadPlatform from "./components/DownloadPlatform.jsx";
 import AsMentionedOn from "./components/AsMentionedOn.jsx";
 import Documentation from "./components/Docs.jsx";
+import ScrollToTopButton from "./components/ScrollToTop.jsx";
 import Footer from "./components/Footer.jsx";
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
       ) : (
         <Documentation />
       )}
+      <ScrollToTopButton />
       <Footer />
     </div>
   );
