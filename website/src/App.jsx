@@ -10,28 +10,42 @@ import DownloadPlatform from "./components/DownloadPlatform.jsx";
 import AsMentionedOn from "./components/AsMentionedOn.jsx";
 import Documentation from "./components/Docs.jsx";
 import ScrollToTopButton from "./components/ScrollToTop.jsx";
-
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
   const [showDocs, setShowDocs] = useState(true);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen scroll-smooth">
       <Navigation showDocs={showDocs} setShowDocs={setShowDocs} />
       {showDocs ? (
         <>
-          <HeroSection />
-          <WhySimpleLang />
-          <WhatMakesItDifferent />
-          <WhoIsItFor />          <JourneySection />
-          <DownloadPlatform />
-          <AsMentionedOn />
-          <CallToAction />
+          <section id="about">
+            <HeroSection />
+            <WhySimpleLang />
+            <WhatMakesItDifferent />
+          </section>
+
+          <section id="contact">
+            <WhoIsItFor />
+            <DownloadPlatform />
+          </section>
+
+          <section id="policy">
+            <JourneySection />
+            <AsMentionedOn />
+          </section>
+
+          {/* ✅ Fix: Add ID so footer can scroll here */}
+          <section id="contact-us">
+            <CallToAction />
+          </section>
         </>
       ) : (
         <Documentation />
       )}
       <ScrollToTopButton />
+      <Footer />
     </div>
   );
 };
