@@ -14,11 +14,11 @@ const CallToAction = () => {
             Simply Lang is about empowering everyone to create. Start your journey today and become part of our growing community of creators.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="bg-black text-white px-8 py-3 rounded flex items-center space-x-2">
+            <button className="bg-black text-white px-8 py-3 rounded flex items-center space-x-2 transition duration-200 hover:bg-purple-700 hover:text-white">
               <span>Start Your Journey</span>
               <ArrowRight size={16} />
             </button>
-            <button className="border border-black px-8 py-3 rounded">
+            <button className="border border-black px-8 py-3 rounded transition duration-200 hover:bg-black hover:text-white">
               Contact Us
             </button>
           </div>
