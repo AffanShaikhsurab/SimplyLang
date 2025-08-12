@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import { Sun, Moon } from "lucide-react";
 
 const Navigation = ({ showDocs, setShowDocs }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu toggle
@@ -94,35 +95,9 @@ const Navigation = ({ showDocs, setShowDocs }) => {
                 aria-label="Toggle Dark Mode"
             >
                 {theme === "light" ? (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-gray-700 dark:text-gray-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m8.66-12.66l-.707.707M4.04 19.96l-.707.707M21 12h-1M4 12H3m16.66-7.96l-.707-.707M5.04 4.04l-.707-.707"
-                    />
-                </svg>
+                  <Sun className="h-6 w-6 text-gray-700 dark:text-gray-300" />
                 ) : (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-gray-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                    />
-                </svg>
+                  <Moon className="h-6 w-6 text-gray-300" />
                 )}
             </button>
         </div>
