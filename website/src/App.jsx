@@ -16,7 +16,7 @@ const App = () => {
   const [showDocs, setShowDocs] = useState(true);
 
   return (
-    <div className="min-h-screen scroll-smooth">
+    <div className="min-h-screen scroll-smooth bg-white dark:bg-black">
       <Navigation showDocs={showDocs} setShowDocs={setShowDocs} />
       {showDocs ? (
         <>
