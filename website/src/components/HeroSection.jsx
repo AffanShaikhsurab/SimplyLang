@@ -20,15 +20,18 @@ const HeroSection = () => {
           </div>
            
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
-          <Typewriter
-                        words={['Create', 'Innovate', 'Inspire']}
-                        loop={true}
-                        cursor
-                        cursorStyle="_"
-                        typeSpeed={80}
-                        deleteSpeed={60}
-                        delaySpeed={1200}
-                      />            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+              <Typewriter
+                words={['Create', 'Innovate', 'Inspire']}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={80}
+                deleteSpeed={60}
+                delaySpeed={1200}
+              />
+            </span>
+            <br />
             in <span className="underline decoration-2">simple</span> words
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg leading-relaxed">
