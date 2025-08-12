@@ -27,7 +27,7 @@ const WhySimpleLang = () => {
 
   return (
     <section className="relative py-20 overflow-hidden ">
-      <div class="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white dark:bg-black bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)] dark:bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,0%,0)_0,rgba(252,205,238,.1)_100%)]"></div>
+      <div class="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white dark:bg-black bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)] dark:bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,0%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
       {/* Subtle background blur element - matching hero lavender tone */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e9e0ea] dark:bg-purple-900/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50" />
       
