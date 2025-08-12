@@ -64,16 +64,16 @@ const WhatMakesItDifferent = () => {
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Ambient animation */}
-      <div class="relative h-full w-full bg-white"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div></div>
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e9e0ea] rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" />
+      <div class="relative h-full w-full bg-white dark:bg-black"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e9e0ea] dark:bg-purple-900/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" />
       
       <div className="container relative mx-auto px-6 lg:px-12">
         <div className="mb-12">
-          <div className="text-sm font-medium text-gray-600 mb-4">— UNIQUE FEATURES</div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-4">— UNIQUE FEATURES</div>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             What Makes Simply Lang Different?
           </h2>
-          <p className="text-gray-600 max-w-2xl">
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
             Experience real-time code execution with our interactive robot simulator.
             Write simple commands and watch them come to life instantly.
           </p>
@@ -82,22 +82,22 @@ const WhatMakesItDifferent = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Code Editor */}
           <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#e9e0ea] to-[#f3eef4] blur-xl opacity-75 -z-10 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative backdrop-blur-sm bg-white/90 rounded-xl border border-white/50 overflow-hidden shadow-xl">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#e9e0ea] to-[#f3eef4] dark:from-purple-900/50 dark:to-purple-800/50 blur-xl opacity-75 -z-10 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative backdrop-blur-sm bg-white/90 dark:bg-gray-900/90 rounded-xl border border-white/50 dark:border-gray-700/50 overflow-hidden shadow-xl">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-b dark:border-gray-700">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
                 <div className="w-3 h-3 rounded-full bg-green-400" />
-                <span className="ml-2 text-sm text-gray-600">robot_control.js</span>
+                <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">robot_control.js</span>
               </div>
               <div className="p-6 font-mono text-sm">
-                <pre className="text-gray-800">
+                <pre className="text-gray-800 dark:text-gray-200">
                   {codeSnippet}
                 </pre>
                 <button
                   onClick={executeCode}
                   disabled={isAnimating}
-                  className="mt-4 flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50"
+                  className="mt-4 flex items-center gap-2 px-4 py-2 bg-gray-900 text-white dark:bg-white dark:text-black rounded-lg hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50"
                 >
                   <Play size={16} />
                   <span>{isAnimating ? 'Running...' : 'Run Code'}</span>
@@ -108,23 +108,29 @@ const WhatMakesItDifferent = () => {
 
           {/* Robot Playground */}
           <div className="relative group" ref={containerRef}>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#e9e0ea] to-[#f3eef4] blur-xl opacity-75 -z-10 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative h-[400px] backdrop-blur-sm bg-white/90 rounded-xl border border-white/50 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#e9e0ea] to-[#f3eef4] dark:from-purple-900/50 dark:to-purple-800/50 blur-xl opacity-75 -z-10 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative h-[400px] backdrop-blur-sm bg-white/90 dark:bg-gray-900/90 rounded-xl border border-white/50 dark:border-gray-700/50 overflow-hidden">
               <div 
                 ref={robotRef}
                 className="absolute w-12 h-12 transition-transform duration-1000 ease-in-out"
               >
-                <Cake className="w-full h-full text-gray-900" />
+                <Cake className="w-full h-full text-gray-900 dark:text-white" />
               </div>
               {/* Grid pattern */}
-              <div className="absolute inset-0" style={{
-                backgroundImage: 'linear-gradient(#e9e0ea 1px, transparent 1px), linear-gradient(90deg, #e9e0ea 1px, transparent 1px)',
-                backgroundSize: '20px 20px'
-              }} />
+              <div className="absolute inset-0 grid-pattern" />
             </div>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .grid-pattern {
+          background-image: linear-gradient(#e9e0ea 1px, transparent 1px), linear-gradient(90deg, #e9e0ea 1px, transparent 1px);
+          background-size: 20px 20px;
+        }
+        .dark .grid-pattern {
+          background-image: linear-gradient(#4a5568 1px, transparent 1px), linear-gradient(90deg, #4a5568 1px, transparent 1px);
+        }
+      `}</style>
     </section>
   );
 };

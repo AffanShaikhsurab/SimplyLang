@@ -25,17 +25,17 @@ const JourneySection = () => {
 
   return (
     <section className="relative py-20 overflow-hidden ">
-        <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff1a_1px,transparent_1px)] [background-size:16px_16px]"></div>
       {/* Ambient background animations */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e9e0ea] rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#e9e0ea] rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse animation-delay-1000" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e9e0ea] dark:bg-purple-900/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#e9e0ea] dark:bg-purple-900/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse animation-delay-1000" />
 
       <div className="container relative mx-auto px-6 lg:px-12">
         <div className="mb-16 relative">
-          <div className="text-sm font-medium text-gray-600 mb-4 opacity-0 animate-fade-in">
+          <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-4 opacity-0 animate-fade-in">
             — YOUR JOURNEY
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 opacity-0 animate-fade-in animation-delay-200">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white opacity-0 animate-fade-in animation-delay-200">
             Journey to Master Simply Lang
           </h2>
         </div>
@@ -48,26 +48,26 @@ const JourneySection = () => {
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Card background with glassmorphism */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/40 rounded-xl backdrop-blur-sm border border-white/50 shadow-lg transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/80 dark:to-gray-800/40 rounded-xl backdrop-blur-sm border border-white/50 dark:border-gray-700/50 shadow-lg transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl" />
               
               {/* Card content */}
               <div className="relative p-8">
                 <div className="flex items-center justify-between mb-6">
                   {/* Icon container with gradient */}
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-[#e9e0ea] to-white inline-block transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <step.icon className="w-8 h-8 text-gray-900" />
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-[#e9e0ea] to-white dark:from-gray-700 dark:to-gray-600 inline-block transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <step.icon className="w-8 h-8 text-gray-900 dark:text-white" />
                   </div>
                   
                   {/* Step number with gradient */}
-                  <span className="text-6xl font-bold bg-gradient-to-br from-gray-200 to-gray-300 bg-clip-text text-transparent opacity-50">
+                  <span className="text-6xl font-bold bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 bg-clip-text text-transparent opacity-50">
                     {step.number}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-4 text-gray-900 transform transition-all duration-300 group-hover:translate-x-1">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white transform transition-all duration-300 group-hover:translate-x-1">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 transform transition-all duration-300 group-hover:translate-x-1">
+                <p className="text-gray-600 dark:text-gray-400 transform transition-all duration-300 group-hover:translate-x-1">
                   {step.description}
                 </p>
               </div>
@@ -75,7 +75,7 @@ const JourneySection = () => {
               {/* Connecting arrow for desktop */}
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 translate-x-full z-10">
-                  <ArrowRight className="w-8 h-8 text-gray-300 animate-pulse" />
+                  <ArrowRight className="w-8 h-8 text-gray-300 dark:text-gray-700 animate-pulse" />
                 </div>
               )}
             </div>
