@@ -6,8 +6,8 @@ const HeroSection = () => {
   return (
     <div className="relative min-h-screen ">
          
-         <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div></div>
+         <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:14px_24px]">
+         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 dark:bg-fuchsia-800 opacity-20 dark:opacity-30 blur-[100px]"></div></div>
       {/* Navigation */}
 
       
@@ -15,11 +15,11 @@ const HeroSection = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 lg:px-16 pt-12 lg:pt-24">
         <div className="max-w-2xl">
-          <div className="text-sm font-medium text-gray-600 mb-8 tracking-wide">
+          <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-8 tracking-wide">
             — YOUR BEST CHOICE
           </div>
            
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
           <Typewriter
                         words={['Create', 'Innovate', 'Inspire']}
                         loop={true}
@@ -31,16 +31,16 @@ const HeroSection = () => {
                       />            <br />
             in <span className="underline decoration-2">simple</span> words
           </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg leading-relaxed">
          Empowering the Future, One Word at a Time.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            <button className="bg-black text-white px-8 py-4 rounded hover:bg-black/90 transition-colors text-sm">
+            <button className="bg-black text-white dark:bg-white dark:text-black px-8 py-4 rounded hover:bg-black/90 transition-colors text-sm">
               Learn more
             </button>
-            <button className="flex items-center justify-center space-x-3 px-8 py-4 text-sm hover:bg-black/5 rounded transition-colors">
-              <Play size={18} className="text-gray-800" />
-              <span>Watch video</span>
+            <button className="flex items-center justify-center space-x-3 px-8 py-4 text-sm hover:bg-black/5 dark:hover:bg-white/10 rounded transition-colors">
+              <Play size={18} className="text-gray-800 dark:text-gray-200" />
+              <span className="text-gray-900 dark:text-white">Watch video</span>
             </button>
           </div>
         </div>
@@ -51,13 +51,13 @@ const HeroSection = () => {
 
       {/* Code Preview */}
       <div className="hidden lg:block absolute right-16 top-24 w-96">
-        <div className="bg-gray-900 text-gray-300 p-6 rounded-lg font-mono text-sm shadow-xl">
+        <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-300 p-6 rounded-lg font-mono text-sm shadow-xl">
           <div className="flex space-x-2 mb-4">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <pre className="text-xs leading-relaxed opacity-90">
+          <pre className="text-xs leading-relaxed opacity-90 dark:opacity-90">
             {`create animal with name , age
     name is "Lion"
     age is 5
@@ -96,7 +96,7 @@ greet()
       
 
       {/* Copyright */}
-      <div className="absolute bottom-8 right-4 lg:right-16 text-sm text-gray-600">
+      <div className="absolute bottom-8 right-4 lg:right-16 text-sm text-gray-600 dark:text-gray-400">
         © THE SIMPLY LANG 2024-2026
       </div>
 

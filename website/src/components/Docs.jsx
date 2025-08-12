@@ -521,18 +521,18 @@ oops
    };
   
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white dark:bg-black">
           <div className="max-w-7xl mx-auto px-4 lg:px-8">
             {/* Mobile Header with Current Section Title */}
-            <div className="lg:hidden sticky top-0 bg-white z-50 py-4 border-b">
+            <div className="lg:hidden sticky top-0 bg-white dark:bg-gray-900 z-50 py-4 border-b dark:border-gray-700">
               <div className="flex items-center justify-between">
                 <button
                   onClick={() => setSidebarOpen(!sidebarOpen)}
-                  className="p-2 rounded-lg hover:bg-gray-100"
+                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   <Menu size={24} />
                 </button>
-                <h1 className="text-lg font-semibold text-gray-900">
+                <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {sections[activeSection].title}
                 </h1>
                 <div className="w-8" /> {/* Spacing placeholder */}
@@ -542,8 +542,8 @@ oops
             {/* Mobile Sidebar Overlay */}
             {sidebarOpen && (
               <div className="fixed inset-0 z-50 lg:hidden">
-                <div className="fixed inset-0 bg-black/20" onClick={() => setSidebarOpen(false)} />
-                <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg p-4">
+                <div className="fixed inset-0 bg-black/20 dark:bg-black/50" onClick={() => setSidebarOpen(false)} />
+                <div className="fixed inset-y-0 left-0 w-64 bg-white dark:bg-gray-900 shadow-lg p-4">
                   <div className="space-y-1">
                     {Object.entries(sections).map(([key, section]) => (
                       <button
@@ -553,7 +553,7 @@ oops
                           setSidebarOpen(false);
                         }}
                         className={`w-full text-left px-4 py-2 rounded-lg transition-colors
-                          ${activeSection === key ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-50'}`}
+                          ${activeSection === key ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}
                       >
                         {section.title}
                       </button>
@@ -573,7 +573,7 @@ oops
                         key={key}
                         onClick={() => setActiveSection(key)}
                         className={`w-full text-left px-4 py-2 rounded-lg transition-colors
-                          ${activeSection === key ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-50'}`}
+                          ${activeSection === key ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}
                       >
                         {section.title}
                       </button>
@@ -593,8 +593,8 @@ oops
                     disabled={currentIndex === 0}
                     className={`flex items-center px-4 py-2 rounded-lg ${
                       currentIndex === 0 
-                        ? 'text-gray-400 bg-gray-100' 
-                        : 'text-blue-600 bg-blue-50 hover:bg-blue-100'
+                        ? 'text-gray-400 bg-gray-100 dark:text-gray-500 dark:bg-gray-800'
+                        : 'text-blue-600 bg-blue-50 hover:bg-blue-100 dark:text-blue-400 dark:bg-blue-900/50 dark:hover:bg-blue-900'
                     }`}
                   >
                     <ChevronLeft className="w-5 h-5 mr-2" />
@@ -606,8 +606,8 @@ oops
                     disabled={currentIndex === sectionKeys.length - 1}
                     className={`flex items-center px-4 py-2 rounded-lg ${
                       currentIndex === sectionKeys.length - 1 
-                        ? 'text-gray-400 bg-gray-100' 
-                        : 'text-blue-600 bg-blue-50 hover:bg-blue-100'
+                        ? 'text-gray-400 bg-gray-100 dark:text-gray-500 dark:bg-gray-800'
+                        : 'text-blue-600 bg-blue-50 hover:bg-blue-100 dark:text-blue-400 dark:bg-blue-900/50 dark:hover:bg-blue-900'
                     }`}
                   >
                     Next
@@ -625,21 +625,21 @@ oops
 
 
 const DocSection = ({ title, description, children }) => (
-    <div className="relative mb-8 md:mb-16 px-4 md:px-8 py-6 md:py-10 shadow-lg rounded-xl overflow-hidden bg-white/80 border border-white/20">
+    <div className="relative mb-8 md:mb-16 px-4 md:px-8 py-6 md:py-10 shadow-lg rounded-xl overflow-hidden bg-white/80 dark:bg-gray-900/80 border border-white/20 dark:border-gray-800/20">
       {/* Background pattern */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:6rem_4rem]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-100/40 via-transparent to-blue-100/40" />
-        <div className="absolute bottom-0 right-0 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-br from-purple-200/30 to-transparent rounded-full blur-2xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#374151_1px,transparent_1px),linear-gradient(to_bottom,#374151_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:6rem_4rem]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100/40 via-transparent to-blue-100/40 dark:from-purple-900/40 dark:to-blue-900/40" />
+        <div className="absolute bottom-0 right-0 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-br from-purple-200/30 to-transparent dark:from-purple-800/30 rounded-full blur-2xl" />
       </div>
       
       {/* Content */}
       <div className="relative z-10">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-gray-900 md:bg-clip-text md:text-transparent md:bg-gradient-to-r md:from-gray-900 md:to-gray-600">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100 md:bg-clip-text md:text-transparent md:bg-gradient-to-r md:from-gray-900 md:to-gray-600 dark:md:from-gray-100 dark:md:to-gray-400">
           {title}
         </h2>
         {description && (
-          <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8 bg-white/50 p-4 rounded-lg">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 md:mb-8 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
             {description}
           </p>
         )}
@@ -651,12 +651,12 @@ const DocSection = ({ title, description, children }) => (
   );
   
   const SubSection = ({ title, children }) => (
-    <div className="relative mb-6 md:mb-8 p-4 md:p-6 rounded-xl bg-white/60 border border-white/30 shadow-lg">
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-white/10" />
-      <h3 className="relative text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6">
+    <div className="relative mb-6 md:mb-8 p-4 md:p-6 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-white/30 dark:border-gray-700/30 shadow-lg">
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-white/10 dark:from-gray-700/20 dark:to-gray-700/10" />
+      <h3 className="relative text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4 md:mb-6">
         {title}
       </h3>
-      <div className="relative space-y-3 md:space-y-4 text-gray-700">
+      <div className="relative space-y-3 md:space-y-4 text-gray-700 dark:text-gray-300">
         {children}
       </div>
     </div>
@@ -678,7 +678,7 @@ const highlightCode = (code) => {
       // Check if the line is a comment (starts with "Note" and ends with ".")
       const isComment = line.trim().startsWith('Note') && line.trim().endsWith('.');
       if (isComment) {
-        return <span key={i} className="text-gray-400">{line}</span>;
+        return <span key={i} className="text-gray-500 dark:text-gray-400">{line}</span>;
       }
       
       // Match different token patterns
@@ -695,27 +695,27 @@ const highlightCode = (code) => {
         
         // Keywords
         if (TOKEN_TYPES.KEYWORDS.includes(cleanToken)) {
-          className = 'text-purple-400'; // Purple for keywords
+          className = 'text-purple-600 dark:text-purple-400'; // Purple for keywords
         }
         // Numbers
         else if (/^\d+(\.\d+)?$/.test(cleanToken)) {
-          className = 'text-yellow-300'; // Yellow for numbers
+          className = 'text-yellow-600 dark:text-yellow-300'; // Yellow for numbers
         }
         // Operators
         else if (TOKEN_TYPES.OPERATORS.some(op => cleanToken.includes(op))) {
-          className = 'text-pink-400'; // Pink for operators
+          className = 'text-pink-600 dark:text-pink-400'; // Pink for operators
         }
         // Punctuation
         else if (TOKEN_TYPES.PUNCTUATION.includes(cleanToken)) {
-          className = 'text-gray-400'; // Gray for punctuation
+          className = 'text-gray-500 dark:text-gray-400'; // Gray for punctuation
         }
         // Strings
         else if (/^["'].*["']$/.test(cleanToken)) {
-          className = 'text-green-400'; // Green for strings
+          className = 'text-green-600 dark:text-green-400'; // Green for strings
         }
         // Variables and other identifiers
         else if (/^[a-zA-Z_]\w*$/.test(cleanToken)) {
-          className = 'text-blue-300'; // Blue for variables
+          className = 'text-blue-600 dark:text-blue-300'; // Blue for variables
         }
         
         return className ? (
@@ -741,11 +741,11 @@ const highlightCode = (code) => {
     };
   
     return (
-      <div className="relative my-4 md:my-6 rounded-xl overflow-hidden shadow-lg border border-white/30">
+      <div className="relative my-4 md:my-6 rounded-xl overflow-hidden shadow-lg border border-white/30 dark:border-gray-700/30">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800/90" />
         
         {title && (
-          <div className="relative px-4 md:px-6 py-2 md:py-3 border-b border-white/10">
+          <div className="relative px-4 md:px-6 py-2 md:py-3 border-b border-white/10 dark:border-b dark:border-gray-700/50">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <div className="hidden md:flex space-x-1">
@@ -757,7 +757,7 @@ const highlightCode = (code) => {
               </div>
               <button
                 onClick={handleCopy}
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/20 transition-colors"
                 aria-label={copied ? "Copied!" : "Copy code"}
               >
                 {copied ? (
