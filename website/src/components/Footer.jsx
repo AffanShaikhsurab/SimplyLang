@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-import {
-  FaGithub,
-  FaTwitter,
-  FaEnvelope,
-  FaLinkedin,
-  FaInstagram
-} from "react-icons/fa";
+import { useState } from "react";
+import { FaGithub, FaTwitter, FaEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const [showTerms, setShowTerms] = useState(false);
@@ -16,65 +10,69 @@ const Footer = () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  return (
-    <footer className="bg-gray-900 text-white py-8 mt-12 border-t border-gray-700">
-      <div className="max-w-6xl mx-auto px-4 text-center">
+  const linkClass =
+    "text-sm font-medium text-slate-400 transition hover:text-white";
 
-        {/* Navigation links */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-4">
-          <button onClick={() => scrollToSection("about")} className="hover:underline text-sm">
-            About
+  return (
+    <footer className="border-t border-slate-800 bg-slate-900 py-10 text-white">
+      <div className="section-container text-center">
+        <div className="mb-6 flex flex-wrap justify-center gap-x-6 gap-y-3">
+          <button type="button" onClick={() => scrollToSection("play")} className={linkClass}>
+            Play
           </button>
-          <button onClick={() => scrollToSection("contact")} className="hover:underline text-sm">
-            Who Is It For
+          <button type="button" onClick={() => scrollToSection("learn")} className={linkClass}>
+            Missions
           </button>
-          <button onClick={() => scrollToSection("policy")} className="hover:underline text-sm">
-            Our Journey
+          <button type="button" onClick={() => scrollToSection("parents")} className={linkClass}>
+            Families
           </button>
-          <button onClick={() => scrollToSection("contact-us")} className="hover:underline text-sm">
-            Contact Us
+          <button type="button" onClick={() => scrollToSection("download")} className={linkClass}>
+            Download
           </button>
-          <button onClick={() => {
-            setShowTerms(!showTerms);
-            setShowPrivacy(false);
-          }} className="hover:underline text-sm">
-            Terms of Use
+          <button
+            type="button"
+            onClick={() => {
+              setShowTerms(!showTerms);
+              setShowPrivacy(false);
+            }}
+            className={linkClass}
+          >
+            Terms
           </button>
-          <button onClick={() => {
-            setShowPrivacy(!showPrivacy);
-            setShowTerms(false);
-          }} className="hover:underline text-sm">
-            Privacy Policy
+          <button
+            type="button"
+            onClick={() => {
+              setShowPrivacy(!showPrivacy);
+              setShowTerms(false);
+            }}
+            className={linkClass}
+          >
+            Privacy
           </button>
         </div>
 
-        {/* Terms of Use */}
-        {showTerms && (
-          <div className="bg-gray-800 text-gray-300 p-4 rounded text-sm mb-4 max-w-3xl mx-auto">
-            <h3 className="text-lg font-semibold mb-2">Terms of Use</h3>
+        {showTerms ? (
+          <div className="mx-auto mb-4 max-w-3xl rounded-card bg-slate-800 p-4 text-left text-sm text-slate-300">
+            <h3 className="mb-2 text-lg font-semibold text-white">Terms of Use</h3>
             <p>
-              By using SimplyLang, you agree not to misuse the platform.
-              All content is provided for educational purposes only.
-              You may not use the content for commercial or unauthorized purposes.
-              These terms may be updated at any time without prior notice.
+              By using SimplyLang, you agree not to misuse the platform. All content is provided for
+              educational purposes only. You may not use the content for commercial or unauthorized
+              purposes.
             </p>
           </div>
-        )}
+        ) : null}
 
-        {/* Privacy Policy */}
-        {showPrivacy && (
-          <div className="bg-gray-800 text-gray-300 p-4 rounded text-sm mb-4 max-w-3xl mx-auto">
-            <h3 className="text-lg font-semibold mb-2">Privacy & Policy</h3>
+        {showPrivacy ? (
+          <div className="mx-auto mb-4 max-w-3xl rounded-card bg-slate-800 p-4 text-left text-sm text-slate-300">
+            <h3 className="mb-2 text-lg font-semibold text-white">Privacy Policy</h3>
             <p>
               We respect your privacy. SimplyLang does not collect personally identifiable information
-              unless you provide it. We use minimal cookies only for essential functionality.
-              Your data is never sold or shared with third parties. You may contact us for any privacy concerns.
+              unless you provide it. Your data is never sold or shared with third parties.
             </p>
           </div>
-        )}
+        ) : null}
 
-        {/* Social Icons */}
-        <div className="flex justify-center space-x-6 text-lg text-gray-400 mb-4">
+        <div className="mb-4 flex justify-center gap-5 text-lg text-slate-400">
           <a href="https://github.com/AffanShaikhsurab/SimplyLang" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label="GitHub">
             <FaGithub />
           </a>
@@ -92,11 +90,10 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Footer text */}
-        <p className="text-xs text-gray-500">
-          Empowering learners with a simple programming language for everyone.
+        <p className="text-sm text-slate-400">
+          A playful first coding language for children ages 7–10.
         </p>
-        <p className="mt-2 text-sm text-gray-400">
+        <p className="mt-2 text-xs text-slate-500">
           © {new Date().getFullYear()} SimplyLang. All rights reserved.
         </p>
       </div>

@@ -1,36 +1,26 @@
-import React, { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button after scrolling down 300px
   useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setIsVisible(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  if (!isVisible) return null;
 
   return (
-    isVisible && (
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 p-3 rounded-full shadow-md bg-gray-800 text-white hover:bg-gray-700 transition"
-        aria-label="Scroll to top"
-      >
-        ↑
-      </button>
-    )
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-6 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-brand-700 text-white shadow-card transition hover:bg-brand-800"
+      aria-label="Scroll to top"
+    >
+      <ArrowUp className="h-5 w-5" />
+    </button>
   );
 };
 

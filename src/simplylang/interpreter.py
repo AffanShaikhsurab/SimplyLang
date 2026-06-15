@@ -1,8 +1,21 @@
+# pylint: disable=line-too-long,too-many-lines,invalid-name
+# pylint: disable=singleton-comparison,no-else-return,inconsistent-return-statements
+# pylint: disable=broad-exception-raised,bare-except,self-assigning-variable
+# pylint: disable=unused-argument,redefined-builtin,unidiomatic-typecheck
+# pylint: disable=f-string-without-interpolation,too-many-return-statements
+# pylint: disable=too-many-branches,too-many-statements,too-many-locals
+# pylint: disable=too-many-nested-blocks
+# pylint: disable=unused-variable,broad-exception-caught,consider-using-enumerate
+# pylint: disable=too-many-public-methods,wrong-import-position,wrong-import-order
+# pylint: disable=ungrouped-imports,unused-import
+
 import os
+import sys
 from typing import List
 
-import lexer as Lex
-import praser as Pr
+import simplylang.lexer as Lex
+import simplylang.parser as Pr
+from simplylang.runtime.control import StopSignal
 
 
 class InterpreterResult:
@@ -184,7 +197,8 @@ class Number:
                 Number(self.value % other.value)
                 .set_context(self.context)
                 .set_context(self.context)
-                .set_pos(self.pos_start, other.pos_end)
+                .set_pos(self.pos_start, other.pos_end),
+                None,
             )
         else:
             print("the instance is not number", type(other))
@@ -195,7 +209,8 @@ class Number:
             return (
                 Number(self.value**other.value)
                 .set_context(self.context)
-                .set_pos(self.pos_start, other.pos_end)
+                .set_pos(self.pos_start, other.pos_end),
+                None,
             )
         else:
             print("the instance is not number", type(other))
@@ -304,8 +319,9 @@ class Bool:
 
 
 class Interpreter:
-    def __init__(self):
+    def __init__(self, output_stream=None):
         self.function_list = []
+        self.output_stream = output_stream or sys.stdout
 
     def visit(self, node, context, symbol_table: List[SymbolTable]):
         method_name = f"visit_{type(node).__name__}"
@@ -472,11 +488,9 @@ class Interpreter:
     def visit_StopNode(
         self, node: Pr.StopNode, context, symbol_table: List[SymbolTable]
     ):
-        res = InterpreterResult()
         if node.string:
-            print(node.string.strip())
-        exit()
-        return res.success(None)
+            print(node.string.strip(), file=self.output_stream)
+        raise StopSignal(node.string.strip() if node.string else None)
 
     def visit_ArrayArrangeNode(
         self, node: Pr.ArrayArrangeNode, context, symbol_table: List[SymbolTable]
@@ -602,7 +616,7 @@ class Interpreter:
         for statement in node.body:
             # Directly print supported data types
             if isinstance(statement, (int, str, bool, float)):
-                print(str(statement).strip(), end=" ")
+                print(str(statement).strip(), end=" ", file=self.output_stream)
             elif isinstance(statement, Pr.VariableAccessNode):
                 # Retrieve variable value
                 value = self.getVariable(statement.variable_name.value, symbol_table)
@@ -616,24 +630,27 @@ class Interpreter:
                     )
                 # Print list values
                 if isinstance(value, list):
-                    print(" ".join(map(str, value)), end=" ")
+                    print(" ".join(map(str, value)), end=" ", file=self.output_stream)
                 else:
-                    print(value, end=" ")
+                    print(value, end=" ", file=self.output_stream)
             else:
                 # Visit the statement and handle result
                 result = self.visit(statement, context, symbol_table)
                 if result and result.value is not None:  # Avoid printing None
                     if isinstance(result.value, Bool):
-                        print(str(result.value.value).strip(), end=" ")
+                        print(
+                            str(result.value.value).strip(),
+                            end=" ",
+                            file=self.output_stream,
+                        )
                     else:
-                        print(result.value, end=" ")
-        print()  # Ensure newline after printing all statements
+                        print(result.value, end=" ", file=self.output_stream)
+        print(file=self.output_stream)  # Ensure newline after printing all statements
         return InterpreterResult().success("success")
 
     def visit_AccessDictNode(
         self, node: Pr.AccessDictNode, context, symbol_table: List[SymbolTable]
     ):
-
         res = InterpreterResult()
 
         variable = node.variable.value
@@ -982,7 +999,7 @@ class Interpreter:
             local_table = symbol_tables[::-1]
             for symbol_table in local_table:
                 value = symbol_table.get(variable)
-                if value:
+                if value is not None:
                     return value
 
         return None
@@ -1143,7 +1160,7 @@ class Interpreter:
             elif node.token.type == Lex.TT_POW:
                 result, error = left.pow(right)
             elif node.token.type == Lex.TT_MOD:
-                result, error == left.mod(right)
+                result, error = left.mod(right)
             elif node.token.type == Lex.TT_GT:
                 result, error = left.isGT(right)
             elif node.token.type == Lex.TT_EQUAL:
@@ -1165,12 +1182,16 @@ class Interpreter:
             return res.success(result.set_pos(node.pos_start, node.pos_end))
 
 
-global_symbol_table = SymbolTable()
+def create_global_symbol_table():
+    symbol_table = SymbolTable()
+    symbol_table.set("NULL", Number(0))
+    return symbol_table
 
-global_symbol_table.set("NULL", Number(0))
+
+global_symbol_table = create_global_symbol_table()
 
 
-def run(filename):
+def run(filename, output_stream=None):
     """
     Runs the interpreter on a given filename, returning the result value and any errors that occurred.
 
@@ -1184,10 +1205,41 @@ def run(filename):
     ast, error = Pr.run(filename)
     if error:
         return None, error
-    interpreter = Interpreter()
-    context.symbol_table = global_symbol_table
-    if isinstance(ast, Pr.StatementsNode):
-        result = interpreter.visit_StatementsNode(ast, context, [context.symbol_table])
-    else:
-        result = interpreter.visit(ast, context, [context.symbol_table])
+    interpreter = Interpreter(output_stream=output_stream)
+    context.symbol_table = create_global_symbol_table()
+    try:
+        if isinstance(ast, Pr.StatementsNode):
+            result = interpreter.visit_StatementsNode(
+                ast, context, [context.symbol_table]
+            )
+        else:
+            result = interpreter.visit(ast, context, [context.symbol_table])
+    except StopSignal:
+        return None, None
     return result.value, result.error
+
+
+# Package-level structured interpreter API.
+import io
+from dataclasses import dataclass
+from typing import Any, Optional
+
+from simplylang.diagnostics import Diagnostic, from_legacy_error
+
+
+@dataclass(frozen=True)
+class InterpretResult:
+    value: Any = None
+    diagnostic: Optional[Diagnostic] = None
+    stdout: str = ""
+
+    @property
+    def ok(self) -> bool:
+        return self.diagnostic is None
+
+
+def interpret_file(filename: str) -> InterpretResult:
+    stdout = io.StringIO()
+    value, error = run(filename, output_stream=stdout)
+    diagnostic = from_legacy_error(error) if error else None
+    return InterpretResult(value=value, diagnostic=diagnostic, stdout=stdout.getvalue())

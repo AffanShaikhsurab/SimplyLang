@@ -15,17 +15,21 @@ Welcome to the **SimplyLang** language project! SimplyLang is a programming lang
 
 ---
 
-## ✨ Sample Code + Output
+## ✨ Child-Friendly Starter Code + Output
 *Code:*
-```bash
-array is 1 , 2 , 4 
-Note: prinitng .
+```simply
+Note :  Robo says hello .
+message is "Hi, I am Robo!"
+show(message)
 
-show("array is " , array)
+score is 0
+score is score + 1
+show("Score:", score)
 ```
 *Output:*
-```bash
-array is 1 2 4
+```text
+Hi, I am Robo!
+Score: 1
 ```
 ---
 ## 📸 Example Output
@@ -40,8 +44,10 @@ array is 1 2 4
 ###  Key Features
 
 - **Intuitive Syntax**: Uses natural language to make coding easy for children.
-- **Interactive Feedback**: Allows learners to see the results of their code instantly.
-- **Educational Focus**: Aims to teach basic programming concepts in an engaging way.
+- **Playground-First Learning**: The website is evolving around command cards,
+  guided missions, and a visual robot world for ages 7-10.
+- **Educational Focus**: Starts with sequence, repeat, choice, and memory before
+  advanced language features.
 
 ---
 ## 📚 Learning Resources
@@ -51,6 +57,8 @@ Explore these additional resources to learn more about SimplyLang:
 - **[SimplyLang DeepWiki](https://deepwiki.com/AffanShaikhsurab/SimplyLang)** - Comprehensive documentation and community-contributed examples
 
 - [Official Syntax Notes](./SYNTAX_NOTES.md) - Quick reference for all commands
+- [Children-First Roadmap](./docs/children-first-roadmap.md) - Product,
+  curriculum, and learning-support roadmap for ages 7-10
 
 
 ---
@@ -90,17 +98,17 @@ Explore these additional resources to learn more about SimplyLang:
 
 2. **Run a SimplyLang Script**
 
-   Navigate to the directory where your `.SimplyLang` file is located or simply execute:
+   Navigate to the directory where your `.simply` file is located or simply execute:
 
    ```bash
-   SimplyLang example.SimplyLang
+   simplylang example.simply
    ```
 
-   Replace `example.SimplyLang` with the name of your SimplyLang language file.
+   Replace `example.simply` with the name of your SimplyLang language file.
 
 3. **Create and Run a SimplyLang Script**
 
-   Create a `.SimplyLang` file with the following content:
+   Create a `.simply` file with the following content:
 
    ```SimplyLang
    a is 1
@@ -108,7 +116,7 @@ Explore these additional resources to learn more about SimplyLang:
    show(b)
    ```
 
-   Save the file as `example.SimplyLang` and run it using the command above to see the result.
+   Save the file as `example.simply` and run it using the command above to see the result.
 
 ---
 

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -10,7 +10,8 @@ const Globe = () => {
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Alpha: true for transparent background
         renderer.setSize(window.innerWidth, window.innerHeight);
-        mountRef.current.appendChild(renderer.domElement);
+        const mountElement = mountRef.current;
+        mountElement.appendChild(renderer.domElement);
 
 
         // Half-sphere geometry
@@ -128,7 +129,7 @@ const Globe = () => {
         animate();
 
         return () => {
-            mountRef.current.removeChild(renderer.domElement);
+            mountElement.removeChild(renderer.domElement);
         };
 
 

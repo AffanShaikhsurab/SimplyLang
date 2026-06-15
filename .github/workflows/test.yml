@@ -1,33 +1,37 @@
 name: Run SimplyLang Tests & Linting
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
-      - main  # Runs on PRs targeting the main branch
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use Ubuntu for running tests
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3  # Pulls the latest code
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10"  # Use any Python version you need
+          python-version: "3.10"
 
       - name: Install Dependencies
         run: |
-          pip install -r requirements.txt  # Install required dependencies
-          pip install pylint black  # Install linting tools
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
 
-      - name: Run SimplyLang Tests
-        run: python src/simply.py tests/system/test.simply  # Run the test.simply file
+      - name: Run Tests
+        run: pytest
 
       - name: Run Linter (Pylint)
-        run: pylint src/ || true  # Prevent failure due to linting issues
+        run: pylint src/simplylang tests
 
       - name: Check Code Formatting (Black)
-        run: black --check src/ || true  # Prevent failure due to formatting issues
+        run: black --check src tests

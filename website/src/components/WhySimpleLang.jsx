@@ -1,64 +1,48 @@
-import React from 'react';
-import { Zap, Brain, Users, Share2 } from 'lucide-react';
+import { Zap, Brain, Users, Share2 } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader.jsx";
 
 const WhySimpleLang = () => {
   const features = [
     {
       icon: Zap,
-      title: 'Intuitive',
-      description: 'Natural syntax that feels like writing in plain English'
+      title: "Easy words",
+      description: "Natural syntax that feels like writing in plain English",
     },
     {
       icon: Brain,
-      title: 'Instant',
-      description: 'See your code come to life immediately with real-time feedback'
+      title: "See it work",
+      description: "Watch Robo react immediately when you press Run",
     },
     {
       icon: Users,
-      title: 'Fun',
-      description: 'Learn through interactive examples and engaging projects'
+      title: "Like a game",
+      description: "Short missions, command cards, and playful challenges",
     },
     {
       icon: Share2,
-      title: 'Grows With You',
-      description: 'Progress from basics to advanced concepts at your own pace'
-    }
+      title: "Level up",
+      description: "Grow from cards to readable text, then into bigger projects",
+    },
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden ">
-      <div class="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
-      {/* Subtle background blur element - matching hero lavender tone */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e9e0ea] rounded-full mix-blend-multiply filter blur-3xl opacity-50" />
-      
-      <div className="container relative mx-auto px-6 lg:px-12">
-        
-        <div className="mb-12 text-left">
-          <div className="inline-block">
-            <div className="text-sm font-medium text-gray-600 mb-4">— WHY CHOOSE US</div>
-            <h2 className="text-4xl font-bold text-gray-900">
-              Why Simply Lang?
-            </h2>
-          </div>
-        </div>
+    <section className="section-shell bg-gradient-to-b from-white to-brand-50/40">
+      <div className="section-container">
+        <SectionHeader
+          eyebrow="Why SimplyLang"
+          title="Built for curious young coders"
+          description="SimplyLang keeps the first steps small, visual, and fun — so children build confidence before they meet harder programming ideas."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="absolute top-0 -z-10 h-full w-full bg-white"><div class="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]"></div></div>
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative p-8 rounded-xl backdrop-blur-sm bg-white/40 border border-white/60 hover:bg-white/60 transition-all duration-300"
-            >
-              <div className="relative z-10">
-                <div className="mb-6 inline-block">
-                  <feature.icon className="w-8 h-8 text-gray-900" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature) => (
+            <article key={feature.title} className="card-surface">
+              <div className="card-icon mb-5">
+                <feature.icon className="h-6 w-6" />
               </div>
-            </div>
+              <h3 className="text-xl font-bold text-ink">{feature.title}</h3>
+              <p className="mt-3 text-ink-muted">{feature.description}</p>
+            </article>
           ))}
         </div>
       </div>

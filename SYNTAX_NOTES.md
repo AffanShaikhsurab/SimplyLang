@@ -1,9 +1,12 @@
 # SimplyLang Programming Language
 
-A lightweight, expressive scripting language with Python-like semantics and domain-specific features for robotics/vision tasks.
+A lightweight, beginner-friendly scripting language for learning programming
+with simple words. The current child-first direction is to start with tiny
+visible programs, then grow toward the full text language.
 
 ## Table of Contents
 - [Variables](#variables)
+- [Kid Core](#kid-core)
 - [Data Structures](#data-structures)
 - [Operators](#operators)
 - [Control Flow](#control-flow)
@@ -11,6 +14,32 @@ A lightweight, expressive scripting language with Python-like semantics and doma
 - [I/O Operations](#io-operations)
 - [Error Handling](#error-handling)
 
+
+---
+
+## Kid Core
+
+Use this subset first for ages 7-10:
+
+```simply
+show("Hi, I am Robo!")
+
+score is 0
+score is score + 1
+
+repeat 3 times
+    show("Robo dance!")
+.
+
+if score > 2 then
+    show("Great job!")
+otherwise
+    show("Try one more time!")
+.
+```
+
+Save advanced lists, dictionaries, classes, contracts, and `try/oops` for later
+lessons.
 
 ---
 
@@ -73,7 +102,7 @@ show("Name of dict Name" , name )
 | Type       | Operators          |
 |------------|--------------------|
 | Arithmetic | `+ - * / % ^`      |
-| Comparison | `equals < > <= >=` |
+| Comparison | `equals not equals < >` |
 | Logical    | `and or not`       |
 
 **Example:**

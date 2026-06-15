@@ -1,3 +1,101 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-ink bg-white antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  #root {
+    @apply min-h-screen w-full text-left;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply relative overflow-hidden py-16 md:py-20;
+  }
+
+  .section-container {
+    @apply container relative mx-auto px-6 lg:px-12;
+  }
+
+  .section-eyebrow {
+    @apply text-sm font-semibold uppercase tracking-wider text-brand-700;
+  }
+
+  .section-title {
+    @apply mt-3 text-3xl font-bold text-ink md:text-4xl;
+  }
+
+  .section-desc {
+    @apply mt-4 max-w-3xl text-lg leading-relaxed text-ink-muted;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-700 px-8 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-ink transition hover:border-brand-200 hover:bg-brand-50;
+  }
+
+  .card-surface {
+    @apply rounded-card border border-brand-100 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-0.5 hover:shadow-card-hover;
+  }
+
+  .card-icon {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-700;
+  }
+
+  .badge {
+    @apply rounded-full px-3 py-1 text-xs font-bold;
+  }
+
+  .badge-brand {
+    @apply badge bg-brand-100 text-brand-800;
+  }
+
+  .badge-warm {
+    @apply badge bg-amber-100 text-amber-900;
+  }
+
+  .badge-sky {
+    @apply badge bg-sky-100 text-sky-800;
+  }
+
+  .dot-grid-bg {
+    @apply bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px];
+  }
+
+  .code-window {
+    @apply overflow-hidden rounded-card border border-slate-200 bg-slate-900 shadow-card;
+  }
+
+  .code-window-header {
+    @apply flex items-center gap-2 border-b border-slate-700/80 px-4 py-3;
+  }
+
+  .code-dot {
+    @apply h-3 w-3 rounded-full;
+  }
+}
+
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe\:animate-pulse {
+      animation: none;
+    }
+  }
+}

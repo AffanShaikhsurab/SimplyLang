@@ -1,3 +1,7 @@
+# pylint: disable=line-too-long,too-many-arguments,too-many-return-statements
+# pylint: disable=too-many-branches,too-many-statements,no-else-return
+# pylint: disable=redefined-builtin,wrong-import-position,unspecified-encoding
+
 import string
 import unicodedata
 
@@ -342,3 +346,34 @@ def generate(filename):
     tokens, error = lexer.create_token()
     # print(tokens)
     return tokens, error
+
+
+# Package-level structured lexer API.
+from dataclasses import dataclass
+from typing import Optional
+
+from simplylang.diagnostics import Diagnostic, from_legacy_error
+from simplylang.source import SourceFile
+
+
+@dataclass(frozen=True)
+class LexResult:
+    tokens: list[Token]
+    legacy_tokens: list[Token]
+    diagnostic: Optional[Diagnostic] = None
+    legacy_error: Optional[Error] = None
+
+    @property
+    def ok(self) -> bool:
+        return self.diagnostic is None
+
+
+def lex_source(source: str, filename: str = "<stdin>") -> LexResult:
+    return lex(SourceFile(source, filename))
+
+
+def lex(source: SourceFile) -> LexResult:
+    legacy_tokens, legacy_error = Lex(source.text, source.filename).create_token()
+    if legacy_error:
+        return LexResult([], [], from_legacy_error(legacy_error), legacy_error)
+    return LexResult(tokens=legacy_tokens, legacy_tokens=legacy_tokens)

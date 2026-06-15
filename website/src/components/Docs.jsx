@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { ChevronDown,Copy, Check ,  ChevronRight, ChevronLeft  , Play, Book, Code, Box, Search, Menu, X, ArrowRight } from 'lucide-react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+import { Copy, Check, ChevronRight, ChevronLeft, Menu } from 'lucide-react';
 import ScrollToTopButton from './ScrollToTop';
 
 const Documentation = () => {
@@ -15,16 +16,55 @@ const Documentation = () => {
       content: (
         <DocSection 
           title="Getting Started" 
-          description="Welcome to our super fun programming language! Let's learn how to write cool programs together! 🚀"
+          description="Welcome to SimplyLang! Start with tiny programs, then try the playground missions."
         >
           <SubSection title="Your First Program">
-            <p className="mb-4">Let's write your very first program - we'll make the computer say hello!</p>
+            <p className="mb-4">Let&apos;s write your very first program - we&apos;ll make Robo say hello!</p>
             <CodeExample 
-              title="hello_world.simple"
+              title="hello_robo.simply"
               code={`Note :  This is your first program! .
-              message is "Hello, friends!"
-              show(message)`} 
+message is "Hi, I am Robo!"
+show(message)`} 
             />
+          </SubSection>
+        </DocSection>
+      )
+    },
+    'kid-core': {
+      title: "Kid Core",
+      content: (
+        <DocSection
+          title="Kid Core - The First Things To Learn"
+          description="This is the ages 7-10 beginner path. Learn these ideas before advanced lists, dictionaries, classes, and contracts."
+        >
+          <SubSection title="Tiny Starter Ideas">
+            <CodeExample
+              title="Kid Core Examples"
+              code={`Note :  Say something .
+show("Hello, Robo!")
+
+Note :  Make a memory box .
+score is 0
+score is score + 1
+show("Score:", score)
+
+Note :  Repeat a pattern .
+repeat 3 times
+    show("Robo dance!")
+.
+
+Note :  Make a choice .
+if score > 2 then
+    show("Great job!")
+otherwise
+    show("Try one more time!")
+.`}
+            />
+            <p className="mt-4 text-gray-700">
+              The browser playground also has visual command cards like move,
+              turn, color, and say. Those are the child-first visual world
+              commands that SimplyLang should grow into next.
+            </p>
           </SubSection>
         </DocSection>
       )
@@ -117,11 +157,11 @@ Note :  Gets 8  .`}
       )
     },
     'classes': {
-      title: "Classes (Creating Things)",
+      title: "Explorer: Classes",
       content: (
         <DocSection 
-          title="Classes - Making Your Own Things!" 
-          description="Classes are like blueprints for making your own special things in your program!"
+          title="Explorer Track - Classes" 
+          description="Classes are powerful, but they belong after the Kid Core missions."
         >
           <SubSection title="Creating Your Own Things">
             <CodeExample 
@@ -180,9 +220,7 @@ repeat 3 times
               title="Making Decisions"
               code={`score is 85
 
-if score >= 90 then
-    show("Super amazing job!")
-otherwise if score >= 80 then
+if score > 80 then
     show("Great work!")
 otherwise
     show("Keep practicing!")
@@ -290,14 +328,10 @@ oops
   Note :  Which one is bigger? .
   a > b           
   Note :  Is a bigger than b? .
-  a >= b          
-  Note :  Is a bigger or equal to b? .
   
   Note :  Which one is smaller? .
   a < b           
-  Note :  Is a smaller than b? .
-  a <= b          
-  Note :  Is a smaller or equal to b? .`  } 
+  Note :  Is a smaller than b? .`  } 
               />
             </SubSection>
           </DocSection>
@@ -369,16 +403,14 @@ oops
                 title="Returning Results"
                 code={`Note :  Function that returns a value .
   check_score takes score does
-      if score >= 90 then
-          return "A"
-      otherwise if score >= 80 then
-          return "B"
+      if score > 80 then
+          return "Great"
       otherwise
           return "Keep trying!"
       .
   .
   
-  grade is check_score(85)   Note :  Gets "B"`} 
+  grade is check_score(85)   Note :  Gets "Great"`} 
               />
             </SubSection>
           </DocSection>
@@ -456,7 +488,7 @@ oops
   Note :  Adds new Level entry .
   
   Note :  Using in games .
-  if Health of player <= 0 then
+  if Health of player < 1 then
       show(Name of player, " needs healing!")
   .`} 
               />
@@ -521,8 +553,12 @@ oops
    };
   
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-gradient-to-b from-brand-50/30 to-white">
           <div className="max-w-7xl mx-auto px-4 lg:px-8">
+            <div className="hidden lg:block py-6">
+              <p className="section-eyebrow">Learn</p>
+              <h1 className="section-title">SimplyLang lessons and reference</h1>
+            </div>
             {/* Mobile Header with Current Section Title */}
             <div className="lg:hidden sticky top-0 bg-white z-50 py-4 border-b">
               <div className="flex items-center justify-between">
@@ -553,7 +589,7 @@ oops
                           setSidebarOpen(false);
                         }}
                         className={`w-full text-left px-4 py-2 rounded-lg transition-colors
-                          ${activeSection === key ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-50'}`}
+                          ${activeSection === key ? 'bg-brand-50 text-brand-700' : 'hover:bg-brand-50/50'}`}
                       >
                         {section.title}
                       </button>
@@ -573,7 +609,7 @@ oops
                         key={key}
                         onClick={() => setActiveSection(key)}
                         className={`w-full text-left px-4 py-2 rounded-lg transition-colors
-                          ${activeSection === key ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-50'}`}
+                          ${activeSection === key ? 'bg-brand-50 text-brand-700' : 'hover:bg-brand-50/50'}`}
                       >
                         {section.title}
                       </button>
@@ -594,7 +630,7 @@ oops
                     className={`flex items-center px-4 py-2 rounded-lg ${
                       currentIndex === 0 
                         ? 'text-gray-400 bg-gray-100' 
-                        : 'text-blue-600 bg-blue-50 hover:bg-blue-100'
+                        : 'text-brand-700 bg-brand-50 hover:bg-brand-100'
                     }`}
                   >
                     <ChevronLeft className="w-5 h-5 mr-2" />
@@ -607,7 +643,7 @@ oops
                     className={`flex items-center px-4 py-2 rounded-lg ${
                       currentIndex === sectionKeys.length - 1 
                         ? 'text-gray-400 bg-gray-100' 
-                        : 'text-blue-600 bg-blue-50 hover:bg-blue-100'
+                        : 'text-brand-700 bg-brand-50 hover:bg-brand-100'
                     }`}
                   >
                     Next

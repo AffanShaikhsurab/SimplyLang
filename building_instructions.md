@@ -53,8 +53,7 @@ PyInstaller bundles the Simply Language interpreter into a standalone executable
 1. **Option A**: Build using the spec file (recommended):
 
    ```bash
-   # Navigate to the directory containing simply.py (main entry point)
-   cd src
+   # Build from the project root so PyInstaller can resolve the package
    # Copy the spec file to the current directory if needed
    copy ..\builder\installers\simply.spec .
    # Build using the spec file
@@ -63,10 +62,8 @@ PyInstaller bundles the Simply Language interpreter into a standalone executable
 2. **Option B**: Build directly with PyInstaller:
 
    ```bash
-   # Navigate to the directory containing simply.py
-   cd src
-   # Create a standalone executable
-   pyinstaller --onefile --name simply simply.py
+   # Create a standalone executable from the package CLI
+   pyinstaller --onefile --name simply -m simplylang.cli
    ```
 
 ### Step 3: Verify the Build

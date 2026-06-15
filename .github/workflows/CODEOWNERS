@@ -5,8 +5,7 @@
 .github/workflows/*  @AffanShaikhSurab
 
 # Owner for core language files
-src/simply.py        @AffanShaikhSurab
-src/*                @AffanShaikhSurab
+src/simplylang/*     @AffanShaikhSurab
 
 # Owner for tests
 tests/*              @AffanShaikhSurab

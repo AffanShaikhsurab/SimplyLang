@@ -1,32 +1,33 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader.jsx";
 
-const CallToAction = () => {
-  return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
-  
-
-      <div className="container mx-auto px-12 text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-sm font-medium text-gray-600 mb-4">— JOIN US</div>
-          <h2 className="text-4xl font-bold mb-6">Join the Revolution</h2>
-          <p className="text-lg text-gray-600 mb-12">
-            Simply Lang is about empowering everyone to create. Start your journey today and become part of our growing community of creators.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <button className="bg-black text-white px-8 py-3 rounded flex items-center space-x-2">
-              <span>Start Your Journey</span>
-              <ArrowRight size={16} />
-            </button>
-            <button className="border border-black px-8 py-3 rounded">
-              Contact Us
-            </button>
-          </div>
-        </div>
+const CallToAction = () => (
+  <section id="contact-us" className="section-shell bg-brand-700 text-white">
+    <div className="section-container text-center">
+      <SectionHeader
+        eyebrow="Get started"
+        title="Ready to make Robo move?"
+        description="Start in the browser with a tiny mission, then grow into readable text coding when the child is ready."
+        centered
+        light
+      />
+      <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href="#play"
+          className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-brand-800 transition hover:bg-brand-50"
+        >
+          Start playing
+          <ArrowRight size={16} />
+        </a>
+        <a
+          href="#parents"
+          className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+        >
+          Parents & teachers
+        </a>
       </div>
-
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default CallToAction;

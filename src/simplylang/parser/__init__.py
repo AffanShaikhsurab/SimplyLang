@@ -1,5 +1,15 @@
+# pylint: disable=line-too-long,too-many-lines,too-many-return-statements
+# pylint: disable=too-many-branches,too-many-statements,too-many-locals
+# pylint: disable=too-many-instance-attributes,too-many-nested-blocks
+# pylint: disable=invalid-name,singleton-comparison,no-else-return
+# pylint: disable=inconsistent-return-statements,bare-except,redefined-builtin
+# pylint: disable=f-string-without-interpolation,unidiomatic-typecheck
+# pylint: disable=no-member,no-value-for-parameter,consider-using-in
+# pylint: disable=unnecessary-pass,unused-variable,wrong-import-position
+# pylint: disable=wrong-import-order,ungrouped-imports,consider-using-from-import
+
 from typing import Any
-import lexer
+import simplylang.lexer as lexer
 
 
 class StatementsNode:
@@ -16,7 +26,6 @@ class StatementsNode:
 
 class BinaryOperationNode:
     def __init__(self, left, op, right):
-
         self.left = left
         self.token = op
         self.right = right
@@ -456,7 +465,6 @@ class Praser:
                 return result.success(UniaryOperatorNode(token, factor))
 
             elif token.type in (lexer.TT_GT, lexer.TT_LT):
-
                 result.register_advance()
                 self.advance()
                 factor = result.register(self.factor())
@@ -623,7 +631,6 @@ class Praser:
             self.advance()
 
             if self.current_token.type == lexer.TT_LP:
-
                 parameters = []
                 if temp.value not in self.functionNames:
                     return res.failure(
@@ -1421,7 +1428,6 @@ class Praser:
                 parameters = []
 
                 if self.current_token.type == lexer.TT_LP:
-
                     self.advance()
                     while self.current_token.type != lexer.TT_RP:
                         if self.current_token.type == lexer.TT_NEWLINE:
@@ -1680,7 +1686,6 @@ class Praser:
             body = []
 
             while self.current_token.type != lexer.TT_RP:
-
                 data = None
                 if self.current_token.type == lexer.TT_STRING:
                     res.register_advance()
@@ -1696,7 +1701,6 @@ class Praser:
                         )
                     variable = ""
                     while self.current_token.type != lexer.TT_STRING:
-
                         variable += " " + str(self.current_token.value)
                         self.advance()
                     self.advance()
@@ -2012,7 +2016,6 @@ def print_ast(node, indent=""):
 
 
 def run(filename):
-
     tokens, error = lexer.generate(filename)
     if error == None:
         praser = Praser(tokens)
@@ -2020,3 +2023,47 @@ def run(filename):
         return ast.node, ast.error
     else:
         return None, error.print()
+
+
+# Correct spelling for new imports. The legacy class/file name remains for
+# compatibility with existing code and packaged installers.
+Parser = Praser
+
+
+# Correct spelling for package consumers.
+Parser = Praser
+
+
+from dataclasses import dataclass
+from typing import Optional
+
+from simplylang.diagnostics import Diagnostic, from_legacy_error
+
+
+@dataclass(frozen=True)
+class ParseResult:
+    node: object | None
+    diagnostic: Optional[Diagnostic] = None
+    legacy_error: object | None = None
+
+    @property
+    def ok(self) -> bool:
+        return self.diagnostic is None
+
+
+def parse_legacy_tokens(tokens) -> ParseResult:
+    result = Parser(tokens).parse()
+    if result.error:
+        return ParseResult(None, from_legacy_error(result.error), result.error)
+    return ParseResult(result.node)
+
+
+def parse_tokens(tokens) -> ParseResult:
+    return parse_legacy_tokens(tokens)
+
+
+def parse_source(source: str, filename: str = "<stdin>") -> ParseResult:
+    lex_result = lexer.lex_source(source, filename)
+    if lex_result.diagnostic:
+        return ParseResult(None, lex_result.diagnostic, lex_result.legacy_error)
+    return parse_legacy_tokens(lex_result.legacy_tokens)
